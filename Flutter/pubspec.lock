@@ -115,6 +115,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  multilevel_drawer:
+    dependency: "direct main"
+    description:
+      name: multilevel_drawer
+      sha256: a8456a65105c1becb0a856030729f251b59eed1acd153eceac2485c6cc1fbc0f
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   path:
     dependency: transitive
     description:

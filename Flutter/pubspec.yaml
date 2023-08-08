@@ -38,6 +38,8 @@ dependencies:
   multilevel_drawer: ^2.0.0
   cloud_firestore: ^4.8.4
   firebase_storage: ^11.2.5
+  video_player: ^2.7.0
+  chewie: ^1.7.0
 
 dev_dependencies:
   flutter_test:

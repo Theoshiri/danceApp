@@ -2,6 +2,7 @@
 
 import 'package:dance_app/home_screen.dart';
 import 'package:dance_app/learn_screen/tip_screen.dart';
+import 'package:dance_app/learn_screen/video_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'dart:ui' as ui;
@@ -21,10 +22,7 @@ class _RoutePageState extends State<RoutePage> {
   String title = 'Home';
 
   void initState() {
-    _widgetOptions = [
-      const HomePage(),
-      const TipPage(),
-    ];
+    _widgetOptions = [const HomePage(), const TipPage(), const VideoPage()];
   }
 
   @override
@@ -121,6 +119,15 @@ class _RoutePageState extends State<RoutePage> {
                     });
                   },
                   submenuContent: const Text('Useful Tips')),
+              MLSubmenu(
+                  onClick: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                      title = 'Videos';
+                      Navigator.pop(context);
+                    });
+                  },
+                  submenuContent: const Text('Useful Videos')),
             ],
             onClick: () {},
           ),

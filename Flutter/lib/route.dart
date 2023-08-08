@@ -1,10 +1,13 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:dance_app/home_screen.dart';
+import 'package:dance_app/learn_screen/tip_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'dart:ui' as ui;
 
 class RoutePage extends StatefulWidget {
-  const RoutePage({super.key});
+  const RoutePage({Key? key}) : super(key: key);
 
   @override
   State<RoutePage> createState() => _RoutePageState();
@@ -20,6 +23,7 @@ class _RoutePageState extends State<RoutePage> {
   void initState() {
     _widgetOptions = [
       const HomePage(),
+      const TipPage(),
     ];
   }
 
@@ -43,25 +47,33 @@ class _RoutePageState extends State<RoutePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(
-                  'assets/images/dance-logo.png',
-                  fit: BoxFit.fitHeight,
+                // Image.asset(
+                //   'assets/images/dance-logo.png',
+                //   fit: BoxFit.fitHeight,
+                // ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 60.0, left: 30.0, right: 30.0, bottom: 20.0),
+                  child: Image.asset(
+                    'assets/images/dance-logo.png',
+                    fit: BoxFit.fitHeight,
+                  ),
                 ),
-                const SizedBox(height: 10.0),
                 Text(
                   'Dance App',
                   style: TextStyle(
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,
-                    foreground: Paint()
-                      ..shader = ui.Gradient.linear(
-                        const Offset(0, 20),
-                        const Offset(150, 20),
-                        <Color>[
-                          Color(0xFF88E763),
-                          Color(0xFFE7A563),
-                        ],
-                      ),
+                    // foreground: Paint()
+                    //   ..shader = ui.Gradient.linear(
+                    //     const Offset(0, 20),
+                    //     const Offset(150, 20),
+                    //     <Color>[
+                    //       Color(0xFF88E763),
+                    //       Color(0xFFE7A563),
+                    //     ],
+                    //   ),
+                    color: Colors.black,
                   ),
                 ),
               ],
@@ -88,6 +100,30 @@ class _RoutePageState extends State<RoutePage> {
                   print(_selectedIndex);
                 });
               }),
+          MLMenuItem(
+            trailing: const Icon(
+              Icons.help,
+              color: Colors.orange,
+            ),
+            content: const Text(
+              "Learn",
+              style: TextStyle(
+                color: Colors.orange,
+              ),
+            ),
+            subMenuItems: [
+              MLSubmenu(
+                  onClick: () {
+                    setState(() {
+                      _selectedIndex = 1;
+                      title = 'Tips';
+                      Navigator.pop(context);
+                    });
+                  },
+                  submenuContent: const Text('Useful Tips')),
+            ],
+            onClick: () {},
+          ),
         ],
       ),
       body: Center(

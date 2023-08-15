@@ -3,6 +3,7 @@
 import 'package:dance_app/home_screen.dart';
 import 'package:dance_app/learn_screen/tip_screen.dart';
 import 'package:dance_app/learn_screen/video_screen.dart';
+import 'package:dance_app/log/justDance.dart';
 import 'package:flutter/material.dart';
 import 'package:multilevel_drawer/multilevel_drawer.dart';
 import 'dart:ui' as ui;
@@ -22,7 +23,12 @@ class _RoutePageState extends State<RoutePage> {
   String title = 'Home';
 
   void initState() {
-    _widgetOptions = [const HomePage(), const TipPage(), const VideoPage()];
+    _widgetOptions = [
+      const HomePage(),
+      const TipPage(),
+      const VideoPage(),
+      UploadPage(),
+    ];
   }
 
   @override
@@ -93,7 +99,7 @@ class _RoutePageState extends State<RoutePage> {
               onClick: () {
                 setState(() {
                   _selectedIndex = 0;
-                  title = 'HOME';
+                  title = 'Home';
                   Navigator.pop(context);
                   print(_selectedIndex);
                 });
@@ -131,6 +137,23 @@ class _RoutePageState extends State<RoutePage> {
             ],
             onClick: () {},
           ),
+          MLMenuItem(
+              trailing: const Icon(
+                Icons.video_camera_front_rounded,
+                color: Colors.pinkAccent,
+              ),
+              content: const Text(
+                'Just Dance',
+                style: TextStyle(color: Colors.pinkAccent),
+              ),
+              onClick: () {
+                setState(() {
+                  _selectedIndex = 3;
+                  title = 'Just Dance';
+                  Navigator.pop(context);
+                  print(_selectedIndex);
+                });
+              }),
         ],
       ),
       body: Center(

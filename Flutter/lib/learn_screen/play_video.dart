@@ -51,14 +51,14 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF88E763),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(50.0),
-            bottomRight: Radius.circular(50.0),
-          ),
-        ),
+        // shape: const RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.only(
+        //     bottomLeft: Radius.circular(50.0),
+        //     bottomRight: Radius.circular(50.0),
+        //   ),
+        // ),
         toolbarHeight: 100,
         flexibleSpace: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +70,7 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
                 width: 110,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/dancee-logo.png'),
+                    image: AssetImage('assets/images/dance-logo.png'),
                     fit: BoxFit.fitHeight,
                   ),
                 ),

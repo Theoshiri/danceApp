@@ -5,7 +5,7 @@ from firebase_admin import credentials, storage
 class StorageManager:
     def __init__(self):
         # Replace the projectID eg.
-        self.bucket_name = 'codingminds.appspot.com'
+        self.bucket_name = 'app-project-7050d.appspot.com'
         # self.bucket_name = '<projectID>.appspot.com'
 
         # You need to download the serviceaccount.json

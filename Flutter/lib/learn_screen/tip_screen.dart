@@ -8,27 +8,73 @@ class TipPage extends StatefulWidget {
 }
 
 class _TipPageState extends State<TipPage> {
-  String tips = """Testing tips for ballroom dance:
-  
-  - Tip 1: Here
-  - Tip 2: Here""";
+  List<String> tips = [
+    "Find a good instructor: Working with a skilled and experienced ballroom dance instructor is crucial. They can teach you proper technique, help you improve your dance skills, and provide valuable feedback and guidance.",
+    "Practice makes perfect: The more you practice, the smoother your moves will become.",
+  ];
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: ListView(
-            children: [
-              Text(
-                tips,
-                style: TextStyle(fontSize: 14),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.blue[300],
+            ),
+            child: Text(
+              "Here are some useful tips for ballroom dance:",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
-            ],
+            ),
           ),
-        ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: ListView.builder(
+                itemCount: tips.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 2,
+                    margin: EdgeInsets.symmetric(vertical: 8.0),
+                    color: Colors.lightBlue[100],
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: RichText(
+                        text: TextSpan(
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.blue[700],
+                          ),
+                          children: [
+                            TextSpan(
+                              text: "Tip ${index + 1}: ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextSpan(
+                              text: tips[index],
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

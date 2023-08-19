@@ -86,7 +86,7 @@ class _ResultPageState extends State<ResultPage> {
   Future<void> _setVideoController(url) async {
     VideoPlayerController controller;
     print('Play video');
-    controller = VideoPlayerController.networkUrl(url);
+    controller = VideoPlayerController.network(url);
 
     setState(() {
       _controller = controller;

@@ -72,7 +72,10 @@ class _UploadPageState extends State<UploadPage> {
                               Navigator.push(
                                   context,
                                   CupertinoPageRoute(
-                                      builder: (context) => ResultPage()));
+                                      builder: (context) => ResultPage(
+                                            title: 'Dance Analyzer',
+                                            video1File: _video1File!,
+                                          )));
                             },
                             child: const Text(
                               'Analyze Videos',

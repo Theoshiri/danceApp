@@ -52,22 +52,23 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
       appBar: AppBar(
         elevation: 0,
         // automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFF88E763),
+        // backgroundColor: Color(0xFF88E763),
+        backgroundColor: Colors.blue,
         // shape: const RoundedRectangleBorder(
         //   borderRadius: BorderRadius.only(
         //     bottomLeft: Radius.circular(50.0),
         //     bottomRight: Radius.circular(50.0),
         //   ),
         // ),
-        toolbarHeight: 100,
+        // toolbarHeight: 100,
         flexibleSpace: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: Container(
-                height: 85,
-                width: 110,
+                height: 40,
+                width: 40,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/images/dance-logo.png'),
@@ -116,7 +117,7 @@ class _PlayVideoPageState extends State<PlayVideoPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    'There was an error playing thee video',
+                    'There was an error playing the video',
                     style: TextStyle(fontSize: 50),
                     selectionColor: Colors.red,
                   ),

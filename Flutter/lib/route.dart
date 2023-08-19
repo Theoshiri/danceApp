@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dance_app/history.dart';
 import 'package:dance_app/home_screen.dart';
 import 'package:dance_app/learn_screen/tip_screen.dart';
 import 'package:dance_app/learn_screen/video_screen.dart';
@@ -28,6 +29,7 @@ class _RoutePageState extends State<RoutePage> {
       const TipPage(),
       const VideoPage(),
       UploadPage(),
+      HistoryPage(),
     ];
   }
 
@@ -38,7 +40,8 @@ class _RoutePageState extends State<RoutePage> {
         title: Text(title),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            color: Color.fromRGBO(155, 241, 140, 1.0),
+            // color: Color.fromRGBO(155, 241, 140, 1.0),
+            color: Colors.blue,
           ),
         ),
       ),
@@ -150,6 +153,23 @@ class _RoutePageState extends State<RoutePage> {
                 setState(() {
                   _selectedIndex = 3;
                   title = 'Just Dance';
+                  Navigator.pop(context);
+                  print(_selectedIndex);
+                });
+              }),
+          MLMenuItem(
+              trailing: const Icon(
+                Icons.history,
+                color: Colors.green,
+              ),
+              content: const Text(
+                'History',
+                style: TextStyle(color: Colors.green),
+              ),
+              onClick: () {
+                setState(() {
+                  _selectedIndex = 4;
+                  title = 'History';
                   Navigator.pop(context);
                   print(_selectedIndex);
                 });

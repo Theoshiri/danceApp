@@ -23,6 +23,14 @@ class _RoutePageState extends State<RoutePage> {
   static List<Widget>? _widgetOptions;
   String title = 'Home';
 
+  final Map<int, Color> appBarColors = {
+    0: Colors.blue,
+    1: Colors.orange,
+    2: Colors.orange,
+    3: Colors.pinkAccent,
+    4: Colors.green,
+  };
+
   void initState() {
     _widgetOptions = [
       const HomePage(),
@@ -35,15 +43,18 @@ class _RoutePageState extends State<RoutePage> {
 
   @override
   Widget build(BuildContext context) {
+    Color appBarColor = appBarColors[_selectedIndex] ?? Colors.blue;
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            // color: Color.fromRGBO(155, 241, 140, 1.0),
-            color: Colors.blue,
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: appBarColor,
       ),
       drawer: MultiLevelDrawer(
         backgroundColor: Colors.white,
@@ -54,10 +65,6 @@ class _RoutePageState extends State<RoutePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Image.asset(
-                //   'assets/images/dance-logo.png',
-                //   fit: BoxFit.fitHeight,
-                // ),
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 60.0, left: 30.0, right: 30.0, bottom: 20.0),
@@ -71,15 +78,6 @@ class _RoutePageState extends State<RoutePage> {
                   style: TextStyle(
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,
-                    // foreground: Paint()
-                    //   ..shader = ui.Gradient.linear(
-                    //     const Offset(0, 20),
-                    //     const Offset(150, 20),
-                    //     <Color>[
-                    //       Color(0xFF88E763),
-                    //       Color(0xFFE7A563),
-                    //     ],
-                    //   ),
                     color: Colors.black,
                   ),
                 ),

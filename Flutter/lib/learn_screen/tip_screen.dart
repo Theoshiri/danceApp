@@ -11,6 +11,7 @@ class _TipPageState extends State<TipPage> {
   List<String> tips = [
     "Find a good instructor: Working with a skilled and experienced ballroom dance instructor is crucial. They can teach you proper technique, help you improve your dance skills, and provide valuable feedback and guidance.",
     "Practice makes perfect: The more you practice, the smoother your moves will become.",
+    "Pay attention to footwork: Footwork is a fundamental aspect of ballroom dance. Work on maintaining proper foot placement, weight distribution, and alignment. Practice the different footwork patterns and steps of each dance style to build muscle memory and precision."
   ];
 
   @override
@@ -23,13 +24,14 @@ class _TipPageState extends State<TipPage> {
           Container(
             padding: EdgeInsets.all(16.0),
             decoration: BoxDecoration(
-              color: Colors.blue[300],
+              color: Colors.orangeAccent,
             ),
             child: Text(
               "Here are some useful tips for ballroom dance:",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Colors.orange[900],
               ),
             ),
           ),
@@ -42,14 +44,14 @@ class _TipPageState extends State<TipPage> {
                   return Card(
                     elevation: 2,
                     margin: EdgeInsets.symmetric(vertical: 8.0),
-                    color: Colors.lightBlue[100],
+                    color: Colors.orangeAccent,
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: RichText(
                         text: TextSpan(
                           style: TextStyle(
                             fontSize: 18,
-                            color: Colors.blue[700],
+                            color: Colors.orange[800],
                           ),
                           children: [
                             TextSpan(
@@ -62,7 +64,7 @@ class _TipPageState extends State<TipPage> {
                               text: tips[index],
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                           ],

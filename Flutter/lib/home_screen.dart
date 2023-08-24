@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<String> info = [
-    "WHAT ARE WE?| [APP NAME HERE] uses state-of-the-art pose-estimation technology to analyze very detail of an individual's ballroom dancing, including shoulder balance, hip angle, and distance from the camera.",
+    "WHAT ARE WE?| Motion Mentor uses state-of-the-art pose-estimation technology to analyze very detail of an individual's ballroom dancing, including shoulder balance, hip angle, and distance from the camera.",
     "WHAT DO WE DO?| In addition, our advanced algorithms can track the speed of your movement as a person dances towards or away from the camera, providing real-time feedback on their performance.",
   ];
 

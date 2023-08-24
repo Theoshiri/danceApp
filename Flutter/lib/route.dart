@@ -74,7 +74,7 @@ class _RoutePageState extends State<RoutePage> {
                   ),
                 ),
                 Text(
-                  'Dance App',
+                  'Motion Mentor',
                   style: TextStyle(
                     fontSize: 23.0,
                     fontWeight: FontWeight.bold,

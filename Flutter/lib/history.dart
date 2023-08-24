@@ -47,22 +47,33 @@ class _HistoryPageState extends State<HistoryPage> {
           print('history');
           String date = _history.keys.elementAt(index);
 
-          return Card(
-            child: ListTile(
-              title: Text(
-                date,
-                style: TextStyle(fontSize: 20),
-              ),
-              trailing: IconButton(
-                icon: const Icon(Icons.play_circle_filled_outlined),
-                tooltip: 'Show Video',
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) =>
-                              PlayVideoPage(url: _history[date], title: date)));
-                },
+          return Padding(
+            padding: EdgeInsets.symmetric(vertical: 5.0),
+            child: Card(
+              color: Colors.green,
+              child: ListTile(
+                title: Text(
+                  date,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: const Icon(
+                    Icons.play_circle_filled_outlined,
+                    color: Colors.white,
+                  ),
+                  tooltip: 'Show Video',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => PlayVideoPage(
+                                url: _history[date], title: date)));
+                  },
+                ),
               ),
             ),
           );

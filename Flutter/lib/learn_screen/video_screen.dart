@@ -41,31 +41,44 @@ class _VideoPageState extends State<VideoPage> {
               ? Center(
                   child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ListView.separated(
-                    padding: const EdgeInsets.all(8),
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(8.0),
                     itemCount: links!.length,
                     itemBuilder: (BuildContext context, int index) {
                       String title = links.keys.elementAt(index);
-                      return Card(
+                      return Padding(
+                        padding: EdgeInsets.symmetric(vertical: 5.0),
+                        child: Card(
+                          color: Colors.orangeAccent,
                           child: ListTile(
-                        title: Text(title.substring(0, title.length - 4)),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.play_circle),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PlayVideoPage(
-                                          url: links![title],
-                                          title: title.substring(
-                                              0, title.length - 4),
-                                        )));
-                          },
+                            title: Text(
+                              title.substring(0, title.length - 4),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              icon: const Icon(
+                                Icons.play_circle,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PlayVideoPage(
+                                              url: links![title],
+                                              title: title.substring(
+                                                  0, title.length - 4),
+                                            )));
+                              },
+                            ),
+                          ),
                         ),
-                      ));
+                      );
                     },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(),
                   ),
                 ))
               : Center(

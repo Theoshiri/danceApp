@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
@@ -41,17 +43,22 @@ class _UploadPageState extends State<UploadPage> {
   void _onVideo1ButtonPressed(ImageSource source) async {
     _video1File = await _picker.pickVideo(
         source: source, maxDuration: const Duration(seconds: 10));
-    await _setVideoController(_video1File!);
+
+    if (_video1File != null) {
+      await _setVideoController(_video1File!);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: _controller1 != null
           ? Column(
               children: [
                 Container(
-                  height: 500,
+                  height: height * 0.40,
+                  color: Color(0xFF232222),
                   child: VideoItems(
                     videoPlayerController: _controller1!,
                     autoplay: false,
@@ -68,18 +75,33 @@ class _UploadPageState extends State<UploadPage> {
                       Expanded(
                         flex: 4,
                         child: ElevatedButton(
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.pinkAccent),
+                            ),
                             onPressed: () {
                               Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => ResultPage(
-                                            title: 'Dance Analyzer',
-                                            video1File: _video1File!,
-                                          )));
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => ResultPage(
+                                    title: 'Analyzed Dance',
+                                    video1File: _video1File!,
+                                  ),
+                                ),
+                              );
                             },
                             child: const Text(
-                              'Analyze Videos',
-                              style: TextStyle(fontSize: 30),
+                              'Analyze Video',
+                              style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                              ),
                             )),
                       ),
                       Expanded(
@@ -105,9 +127,15 @@ class _UploadPageState extends State<UploadPage> {
                     'assets/images/dance-logo.png',
                     height: 150,
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const Text(
-                    'Just Dance',
-                    style: TextStyle(fontSize: 30),
+                    'Motion Mentor',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(
                     height: 50,
@@ -116,6 +144,12 @@ class _UploadPageState extends State<UploadPage> {
                     width: 250,
                     child: ElevatedButton(
                       style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                        ),
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.pinkAccent),
                       ),
@@ -133,7 +167,7 @@ class _UploadPageState extends State<UploadPage> {
                             color: Colors.white,
                           ),
                           Text(
-                            'Upload Video',
+                            'Upload a Video',
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -143,16 +177,28 @@ class _UploadPageState extends State<UploadPage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
-                  const Text('OR'),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  // const Text(
+                  //   'OR',
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: 16,
+                  //   ),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
                   SizedBox(
                     width: 250,
                     child: ElevatedButton(
                       style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                        ),
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.pinkAccent),
                       ),

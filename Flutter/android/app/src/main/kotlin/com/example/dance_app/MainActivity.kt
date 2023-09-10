@@ -1,4 +1,4 @@
-package com.example.dance_app
+package com.sunny.motionmentor
 
 import io.flutter.embedding.android.FlutterActivity
 

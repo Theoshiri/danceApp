@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "dance_app" "\0"
+            VALUE "FileDescription", "Motion Mentor" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "dance_app" "\0"
+            VALUE "InternalName", "Motion Mentor" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "dance_app.exe" "\0"
-            VALUE "ProductName", "dance_app" "\0"
+            VALUE "ProductName", "Motion Mentor" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
